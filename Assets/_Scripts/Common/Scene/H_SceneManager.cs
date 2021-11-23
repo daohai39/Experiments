@@ -1,11 +1,10 @@
 using System;
-using Common.Base;
 using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
 //TODO: Add cache references to loading, unloading, loaded scene
 //TODO: Add callback event/delegate for handling loading/unloading scene (success, failed)
-public class H_SceneManager : Singleton<H_SceneManager>, ISceneManager {
+public class H_SceneManager : MonoSingleton<H_SceneManager>, ISceneManager {
   
   public void Load(string sceneName) {
     Scene targetScene = SceneManager.GetSceneByName(sceneName);
@@ -77,5 +76,13 @@ public class H_SceneManager : Singleton<H_SceneManager>, ISceneManager {
 
   private async UniTask UnloadSceneAsync(string sceneName) {
     await SceneManager.UnloadSceneAsync(sceneName);
+  }
+
+  protected override void InternalInit() {
+    throw new NotImplementedException();
+  }
+
+  protected override void InternalOnDestroy() {
+    throw new NotImplementedException();
   }
 }

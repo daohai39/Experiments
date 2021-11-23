@@ -229,5 +229,9 @@ public static partial class Utils {
     Object.Destroy(go);
   }
 
+  public static bool IsDestroyed(this GameObject go) {
+    return go == null && !ReferenceEquals(go, null);
+  }
+
 #endregion
 }

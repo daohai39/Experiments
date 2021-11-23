@@ -1,4 +1,3 @@
-using Common.Logger;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Common.Base;
-using Common.Logger;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Common.UI {
-  public class UIManager : Singleton<UIManager> {
+  public class UIManager : MonoSingleton<UIManager> {
     private abstract class QueuedScreen {
       public UIScreen.Id id;
     }
@@ -55,6 +53,14 @@ namespace Common.UI {
       SetupReferences();
       //remove any objects that may be lingering underneath the root
       rootCanvas.transform.DestroyAllChildren();
+    }
+
+    protected override void InternalInit() {
+      throw new NotImplementedException();
+    }
+
+    protected override void InternalOnDestroy() {
+      throw new NotImplementedException();
     }
 
     private void SetupReferences() {

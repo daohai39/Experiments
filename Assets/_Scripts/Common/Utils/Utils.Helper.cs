@@ -44,4 +44,11 @@ public static partial class Utils {
     RectTransformUtility.ScreenPointToWorldPointInRectangle(el, el.position, CameraMain, out var result);
     return result;
   }
+
+  public static bool IsInEditor() {
+#if UNITY_EDITOR
+    return true;
+#endif
+    return false;
+  }
 }
